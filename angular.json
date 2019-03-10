@@ -2,5 +2,170 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "irexim": {
+      "root": "projects/irexim/",
+      "sourceRoot": "projects/irexim/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/irexim",
+            "index": "projects/irexim/src/index.html",
+            "main": "projects/irexim/src/main.ts",
+            "polyfills": "projects/irexim/src/polyfills.ts",
+            "tsConfig": "projects/irexim/tsconfig.app.json",
+            "assets": [
+              "projects/irexim/src/favicon.ico",
+              "projects/irexim/src/assets"
+            ],
+            "styles": [
+              "projects/irexim/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/irexim/src/environments/environment.ts",
+                  "with": "projects/irexim/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "irexim:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "irexim:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "irexim:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/irexim/src/test.ts",
+            "polyfills": "projects/irexim/src/polyfills.ts",
+            "tsConfig": "projects/irexim/tsconfig.spec.json",
+            "karmaConfig": "projects/irexim/karma.conf.js",
+            "styles": [
+              "projects/irexim/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/irexim/src/favicon.ico",
+              "projects/irexim/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/irexim/tsconfig.app.json",
+              "projects/irexim/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "irexim-e2e": {
+      "root": "projects/irexim-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/irexim-e2e/protractor.conf.js",
+            "devServerTarget": "irexim:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "irexim:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/irexim-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "shared-library": {
+      "root": "projects/shared-library",
+      "sourceRoot": "projects/shared-library/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/shared-library/tsconfig.lib.json",
+            "project": "projects/shared-library/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/shared-library/src/test.ts",
+            "tsConfig": "projects/shared-library/tsconfig.spec.json",
+            "karmaConfig": "projects/shared-library/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/shared-library/tsconfig.lib.json",
+              "projects/shared-library/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "irexim"
 }

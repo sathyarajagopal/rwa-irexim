@@ -1,27 +1,33 @@
-# RwaIrexim
+# ir-exim app
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
+Indra Rajagopal Exports and Imports
 
-## Development server
+This is a web app dedicated for the exports and imports business run by Indra Rajagopal, proprietrix of **IR EXIM**.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+See it in action (still a work in progress) - https://www.irexim.co.in
 
-## Code scaffolding
+[Part-0: Getting Started with Angular 7 workspace, library and application](https://medium.com/sprblogs/real-world-app-with-angular-7-part-0-getting-started-48035ff2ae55)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Quick Installation Instructions
 
-## Build
+* Install cli globally
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+`npm install -g @angular/cli`
 
-## Running unit tests
+* Install npm packages (Run the install command after deleting package.lock.json so that the latest package versions gets downloaded to your machine instead of the ones used at the time of the development of this web app)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`npm install`
 
-## Running end-to-end tests
+* Run the application using ng serve
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+`ng serve`
 
-## Further help
+* Create a build
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+`ng build`
+
+## Testing
+
+* Test the application using
+
+`ng test`
